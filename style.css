@@ -1,0 +1,319 @@
+/* import custom font */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,700;1,800&display=swap');
+
+/* boilerplate styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    overflow: overlay;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 9px;
+    padding: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.578);
+    backdrop-filter: blur(11115px);
+
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::selection {
+    color: white;
+
+    background-color: var(--secondary-clr);
+}
+
+/* variables */
+:root {
+    --gradient-deg: 0deg;
+    --secondary-clr: hsl(254, 84%, 59%);
+    --primary-clr: hsl(216, 96%, 62%);
+    --shadow-color: 0deg 0% 0%;
+    --shadow-elevation-low:
+        0px 0.5px 0.6px hsl(var(--shadow-color) / 0.3),
+        0px 0.7px 0.8px -1.3px hsl(var(--shadow-color) / 0.29),
+        0px 1.7px 1.9px -2.6px hsl(var(--shadow-color) / 0.28);
+    --shadow-elevation-medium:
+        0px 0.5px 0.6px hsl(var(--shadow-color) / 0.31),
+        0px 1.4px 1.6px -0.9px hsl(var(--shadow-color) / 0.31),
+        0px 3.4px 3.8px -1.7px hsl(var(--shadow-color) / 0.3),
+        0px 8.3px 9.2px -2.6px hsl(var(--shadow-color) / 0.3);
+    --shadow-elevation-high:
+        0px 0.5px 0.6px hsl(var(--shadow-color) / 0.1),
+        0px 2.2px 2.4px -0.4px hsl(var(--shadow-color) / 0.1),
+        0px 4.1px 4.6px -0.7px hsl(var(--shadow-color) / 0.1),
+        0px 6.7px 7.4px -1.1px hsl(var(--shadow-color) / 0.1),
+        0px 10.8px 12px -1.5px hsl(var(--shadow-color) / 0.1),
+        0px 16.9px 18.8px -1.9px hsl(var(--shadow-color) / 0.1),
+        0px 25.7px 28.5px -2.2px hsl(var(--shadow-color) / 0.1),
+        -0.1px 38px 42.2px -2.6px hsl(var(--shadow-color) / 0.1);
+}
+
+/* keyframes */
+@keyframes hover {
+    from {
+        transform: translateY(-5%);
+    }
+
+    to {
+        transform: translateY(5%);
+    }
+}
+
+@keyframes spin {
+    from {
+        --gradient-deg: 0deg;
+    }
+
+    to {
+        --gradient-deg: 360deg;
+    }
+}
+
+/* nav bar */
+.nav {
+    display: flex;
+    justify-content: space-around;
+    position: sticky;
+    z-index: 2;
+    background-color: hsla(0, 0%, 100%, 0.5);
+    backdrop-filter: blur(20px);
+    top: 0;
+    left: 0;
+    scroll-padding: 10px;
+    top: -0.1px;
+    transition: box-shadow 150ms ease-in-out;
+    user-select: none;
+    padding: 10px 0;
+}
+
+nav[stuck] {
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    background: url(logo.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: auto;
+}
+
+.n-list {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+}
+
+.n-list li {
+    cursor: pointer;
+    font-weight: 600;
+    transition: color 250ms ease;
+    font-size: 1.2rem;
+}
+
+.n-list li:hover {
+    color: var(--secondary-clr);
+}
+
+.n-btn {
+    background: var(--primary-clr);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 100vmax;
+    border: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: box-shadow 300ms ease;
+}
+
+.n-btn:hover {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25), 0 0 50px rgba(0, 0, 0, 0.2) inset;
+}
+
+/* header */
+.header {
+    margin-block: 120px 200px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 4rem;
+    margin: 0;
+    animation: hover 1.5s ease-in-out alternate infinite;
+}
+
+.header p {
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* main */
+.main {
+    background: hsla(189, 92%, 69%, 1);
+    background: linear-gradient(45deg, hsla(189, 92%, 69%, 1) 0%, hsla(264, 87%, 66%, 1) 0%, hsla(248, 89%, 69%, 1) 27%, hsla(236, 91%, 70%, 1) 74%, hsla(216, 96%, 62%, 1) 100%);
+    background: -moz-linear-gradient(45deg, hsla(189, 92%, 69%, 1) 0%, hsla(264, 87%, 66%, 1) 0%, hsla(248, 89%, 69%, 1) 27%, hsla(236, 91%, 70%, 1) 74%, hsla(216, 96%, 62%, 1) 100%);
+    background: -webkit-linear-gradient(45deg, hsla(189, 92%, 69%, 1) 0%, hsla(264, 87%, 66%, 1) 0%, hsla(248, 89%, 69%, 1) 27%, hsla(236, 91%, 70%, 1) 74%, hsla(216, 96%, 62%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#68E3F9", endColorstr="#995DF4", GradientType=1);
+    height: 100%;
+    padding-bottom: 200px;
+    padding-top: 200px;
+    padding-inline: 3rem;
+    clip-path: polygon(0% 0%, 0 0, 100% 12%, 100% 100%, 0% 88%);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5) inset;
+    gap: 1.5rem;
+}
+
+.card {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 300px;
+    font-size: 1.25rem;
+    margin: 0;
+    background-color: white;
+    padding: 15px;
+    box-shadow: var(--shadow-elevation-high);
+}
+
+.div {
+    flex-direction: column;
+    margin-bottom: auto;
+}
+
+.card p {
+    margin: 5px 0;
+}
+
+.c-m-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.c-m-link {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    color: black;
+    font-size: 15px;
+    transition: gap 200ms ease;
+    cursor: pointer;
+}
+
+.c-m-link:hover {
+    gap: 15px;
+}
+
+.c-m-link:hover a {
+    color: var(--secondary-clr);
+    transform: scale(1.05);
+}
+
+.c-m-link:hover {
+    color: var(--secondary-clr);
+}
+
+.c-m-link a {
+    color: black;
+    display: flex;
+    will-change: transform;
+    align-items: center;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 250ms;
+}
+
+.c-m-link img {
+    width: 30px;
+    cursor: pointer;
+}
+
+/* footer */
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-block: 50px;
+    padding-block-end: 150px;
+}
+
+.newsletter {
+    border: 2px solid var(--secondary-clr);
+    border-radius: 1rem;
+    padding: 20px 60px;
+}
+
+.newsletter h1 {
+    font-size: 3rem;
+}
+
+.newsletter input {
+    padding: 10px;
+    width: 20rem;
+    height: 4rem;
+    font-size: 1.2rem;
+    border: 1px solid gray;
+    border-radius: none;
+    transition: all 100ms;
+}
+
+.newsletter input:focus {
+    outline: none;
+    border: 2px ridge var(--secondary-clr);
+}
+
+.newsletter button {
+    padding: 10px 30px;
+    background: hsla(189, 92%, 69%, 1);
+    background: linear-gradient(var(--gradient-deg), hsla(189, 92%, 69%, 1) 0%, hsla(264, 87%, 66%, 1) 0%, hsla(248, 89%, 69%, 1) 27%, hsla(236, 91%, 70%, 1) 74%, hsla(216, 96%, 62%, 1) 100%);
+    background: -moz-linear-gradient(var(--gradient-deg), hsla(189, 92%, 69%, 1) 0%, hsla(264, 87%, 66%, 1) 0%, hsla(248, 89%, 69%, 1) 27%, hsla(236, 91%, 70%, 1) 74%, hsla(216, 96%, 62%, 1) 100%);
+    background: -webkit-linear-gradient(var(--gradient-deg), hsla(189, 92%, 69%, 1) 0%, hsla(264, 87%, 66%, 1) 0%, hsla(248, 89%, 69%, 1) 27%, hsla(236, 91%, 70%, 1) 74%, hsla(216, 96%, 62%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#68E3F9", endColorstr="#995DF4", GradientType=1);
+    border: none;
+    color: white;
+    font-size: inherit;
+    width: 10rem;
+    height: 4rem;
+    top: -1px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* copyright */
+.copyright {
+    color: white;
+    padding: 10px;
+    background: hsla(189, 92%, 69%, 1);
+    background: linear-gradient(var(--gradient-deg), hsla(189, 92%, 69%, 1) 0%, hsla(264, 87%, 66%, 1) 0%, hsla(248, 89%, 69%, 1) 27%, hsla(236, 91%, 70%, 1) 74%, hsla(216, 96%, 62%, 1) 100%);
+    background: -moz-linear-gradient(var(--gradient-deg), hsla(189, 92%, 69%, 1) 0%, hsla(264, 87%, 66%, 1) 0%, hsla(248, 89%, 69%, 1) 27%, hsla(236, 91%, 70%, 1) 74%, hsla(216, 96%, 62%, 1) 100%);
+    background: -webkit-linear-gradient(var(--gradient-deg), hsla(189, 92%, 69%, 1) 0%, hsla(264, 87%, 66%, 1) 0%, hsla(248, 89%, 69%, 1) 27%, hsla(236, 91%, 70%, 1) 74%, hsla(216, 96%, 62%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#68E3F9", endColorstr="#995DF4", GradientType=1);
+    position: relative;
+    bottom: 0;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5) inset;
+}
+
+.copyright p {
+    margin: 0;
+    text-align: center;
+}
